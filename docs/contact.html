@@ -187,6 +187,16 @@
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
+        /* Dropdown */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > .nav-link { display: flex; align-items: center; gap: 5px; }
+        .nav-dropdown > .nav-link .arrow { font-size: 10px; transition: transform 0.3s ease; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(6, 19, 64, 0.97); backdrop-filter: blur(10px); border-radius: 10px; padding: 10px 0; min-width: 200px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; margin-top: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dropdown:hover > .nav-link .arrow { transform: rotate(180deg); }
+        .dropdown-menu a { display: block; padding: 10px 24px; font-size: 14px; font-weight: 500; color: var(--white); transition: all 0.3s ease; white-space: nowrap; }
+        .dropdown-menu a:hover { color: var(--accent-orange); background: rgba(255,255,255,0.05); }
+
         /* ===== Contact Hero Banner ===== */
         .contact-hero {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, var(--medium-blue) 100%);
@@ -575,6 +585,7 @@
             .nav-wrapper .primary-nav .nav-link { font-size: 18px; }
             .nav-wrapper .btn-contact { margin-top: 20px; }
             .menu-toggle { display: flex; }
+            .nav-dropdown .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: transparent; box-shadow: none; margin-top: 0; padding: 0 0 0 16px; }
 
             .contact-hero { padding: 130px 0 60px; }
             .contact-hero h1 { font-size: 32px; }
@@ -611,7 +622,13 @@
             <nav class="primary-nav" aria-label="Main Navigation">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="index.html#about" class="nav-link">About Us</a>
-                <a href="index.html#services" class="nav-link">Services</a>
+                <div class="nav-dropdown">
+                    <a href="index.html#services" class="nav-link">Services <span class="arrow">&#9660;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="services-1.html">Services</a>
+                        <a href="services-2.html">Packages</a>
+                    </div>
+                </div>
                 <a href="index.html#packages" class="nav-link">Packages</a>
             </nav>
 
@@ -621,7 +638,13 @@
                 <nav class="primary-nav mobile-nav" aria-label="Mobile Navigation">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="index.html#about" class="nav-link">About Us</a>
-                    <a href="index.html#services" class="nav-link">Services</a>
+                    <div class="nav-dropdown">
+                        <a href="index.html#services" class="nav-link">Services <span class="arrow">&#9660;</span></a>
+                        <div class="dropdown-menu">
+                            <a href="services-1.html">Services</a>
+                            <a href="services-2.html">Packages</a>
+                        </div>
+                    </div>
                     <a href="index.html#packages" class="nav-link">Packages</a>
                 </nav>
                 <a href="#contact-form" class="btn-contact">Contact Us</a>
